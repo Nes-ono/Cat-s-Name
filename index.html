@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小毛球互动</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 pinyin-pro 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/pinyin-pro@3.18.2/dist/index.js"></script>
+</head>
+<body>
+    <!-- 识别结果显示 -->
+    <div id="recognition-result" class="recognition-result hidden">
+        <div id="recognition-content"></div>
+        <button id="confirm-button" class="confirm-button hidden">确认</button>
+    </div>
+
+    <!-- 视频容器 -->
+    <div id="video-container" class="video-container">
+        <video id="main-video" autoplay loop playsinline>
+            <source src="1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- 背景音乐 -->
+    <audio id="bgm-audio" loop>
+        <source src="bgm.MP3" type="audio/mpeg">
+    </audio>
+
+    <!-- 深色背景遮罩 -->
+    <div id="overlay" class="overlay hidden">
+        <div id="text-display" class="text-display"></div>
+    </div>
+
+    <!-- 点击呼唤按钮 -->
+    <button id="call-button" class="call-button hidden">点击开始识别</button>
+
+    <!-- 物品栏 -->
+    <div id="item-bar" class="item-bar hidden">
+        <div class="item" data-category="a" draggable="true">
+            <img src="a.png" alt="Item A" class="item-image">
+        </div>
+        <div class="item" data-category="b" draggable="true">
+            <img src="b.png" alt="Item B" class="item-image">
+        </div>
+        <div class="item" data-category="c" draggable="true">
+            <img src="c.png" alt="Item C" class="item-image">
+        </div>
+    </div>
+
+    <!-- 动画占位 -->
+    <div id="animation-placeholder" class="animation-placeholder hidden"></div>
+
+    <!-- 名片页面 -->
+    <div id="card-page" class="card-page hidden">
+        <div id="card-container" class="card-container">
+            <div id="card-front" class="card-face card-front">
+                <img id="card-front-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpolygon points='100,20 180,180 20,180' fill='red'/%3E%3C/svg%3E" alt="Front">
+            </div>
+            <div id="card-back" class="card-face card-back">
+                <img id="card-back-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpolygon points='100,20 180,180 20,180' fill='blue'/%3E%3C/svg%3E" alt="Back">
+                <div class="card-buttons">
+                    <button id="save-button" class="card-button">保存名片</button>
+                    <button id="restart-button" class="card-button">重新呼唤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
